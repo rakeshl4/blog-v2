@@ -2,6 +2,12 @@
 title: Integrating external tools with Large Language Models
 date: '2024-06-02'
 tags: ['AI Agent', 'OpenAI', 'LLM']
+images:
+  [
+    '/static/images/2024-06-02/1721194225493.png',
+    '/static/images/2024-06-02/1721182749451.png',
+    '/static/images/2024-06-02/1721181916731.png',
+  ]
 draft: true
 summary: A Virtual Assistant can assist users in answering questions, providing information and performing tasks. In the past, the virtual assistants were built using predefined rules and templates. This approach posed limitations to the number of tasks that the virtual assistant could perform and the quality of the responses it could generate.
 ---
@@ -13,6 +19,8 @@ This approach posed limitations to the number of tasks that the virtual assistan
 
 With the advancements in Natural Language Processing (NLP), it is now possible to build virtual assistants that can understand and respond to natural language queries.
 This requires understanding the intent of the user query, extracting key information from the query, executing tasks, and generating appropriate responses.
+
+![large-language-model](/static/images/2024-06-02/1721194225493.png)
 
 The LLM models can understand and respond to natural language queries. They can do this because they have been trained on massive amounts of text data. They use a type of machine learning called deep learning to understand how the words relate to each other and generate responses. This is a powerful capability that enables LLM models to produce human-like text and carry on conversations with users.
 
@@ -69,9 +77,13 @@ The whole process for interacting with external tools can be broken down into tw
 In the first phase, the user query is sent to the LLM model along with the available tools. The model analyzes the query and determines the tool required to process the request.
 It returns the response with the details of the tool to be used and the input parameters required for the tool.
 
+![large-language-model](/static/images/2024-06-02/1721181916731.png)
+
 #### Phase 2 - Execute the tool and generate the response
 
 In the next phase, the host application calls the tool with the input data supplied by the model in the previous step . The response from the tool is again sent to the LLM model. The LLM model uses this data to generate the final response to the user query.
+
+![large-language-model](/static/images/2024-06-02/1721182749451.png)
 
 This process can repeat multiple times depending on the complexity of the task and the number of tools required to complete the task. The host application is reponsible to orchestrate the interaction between the LLM model and the external tools.
 
@@ -79,15 +91,15 @@ This process can repeat multiple times depending on the complexity of the task a
 
 Let's consider a simple use case where the user asks the virtual assistant to get the current weather in a specific location. The workflow below shows the steps involved in processing the user query and generating the response -
 
-Step 1: The user asks the virtual assistant "What's the current weather in New Delhi?"
+**Step 1**: The user asks the virtual assistant "What's the current weather in New Delhi?"
 
-Step 2: The weather tool calls the LLM model with the user query. It sends the tool "get_current_weather" with the information about the input and output schema.
+**Step 2**: The weather tool calls the LLM model with the user query. It sends the tool "get_current_weather" with the information about the input and output schema.
 
-Step3: The LLM model processes the query and determines that the user wants to get the current weather for a specific location. The location of interest is extracted from the query. The LLM model is aware of the tool "get_current_weather" that can perform this task. It sends a response with the tool and the required input parameters.
+**Step 3**: The LLM model processes the query and determines that the user wants to get the current weather for a specific location. The location of interest is extracted from the query. The LLM model is aware of the tool "get_current_weather" that can perform this task. It sends a response with the tool and the required input parameters.
 
-Step 4: The weather tool uses the input data and runs the tool to get the current weather for the given location. The weather forecast is a data that contains information such as temperature, humidity, precipitation, wind, etc is sent back to the LLM model.
+**Step 4**: The weather tool uses the input data and runs the tool to get the current weather for the given location. The weather forecast is a data that contains information such as temperature, humidity, precipitation, wind, etc is sent back to the LLM model.
 
-Step 4: The LLM model interprets the weather information and generates a response to the user. The response can be "It is currently 30 degrees Celsius in New Delhi with clear skies and a light breeze." The response is structured based on the user query and the instructions provided in prompt.
+**Step 5**: The LLM model interprets the weather information and generates a response to the user. The response can be "It is currently 30 degrees Celsius in New Delhi with clear skies and a light breeze." The response is structured based on the user query and the instructions provided in prompt.
 
 ### Conclusion
 
