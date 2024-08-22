@@ -142,13 +142,13 @@ In the bike store AI assistant scenario, we can embed the bike description and o
 
 The steps involved in implementing the RAG pattern are as follows:
 
-### Pre-Processing
+**Pre-Processing**
 
 1. The data may be unstructured and spread across multiple sources. The data is ingested into a vector database.
 2. The data that is relevant to the user query is vectorized using an embedding model. The vector embedding is stored as a vector field within its source record.
 3. The vector columns are indexed and optimized for fast search and retrieval.
 
-### Run-time
+**Run-time**
 
 1. The user query is vectorized using the same embedding model.
 2. The vectorized query is used to search the vector database for similar vectors.
